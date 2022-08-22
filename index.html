@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html> 
+<head>
+	<title>Brent Martin's Pokemon Game</title>
+</head>
+<body>
+<script type="text/javascript">
+	
+//intro to game
+	alert('Hello there! Welcome to the world of Pokemon!') 
+	
+	alert('My name is Oak! Most people call me the Pokemon Prof!')
+	
+	alert('Oak: This world is inhabited by creatures called Pokemon! For some people, Pokemon are pets. Others use them for fights. Myself...I study Pokemon as a profession.')
+
+//intro variables
+	var playerName
+	var enemyName
+	var userEntry
+	var pokemon
+	var enemyChoice
+	var enemyPokemon
+
+//obtaining players name
+	playerName = prompt('Oak: First, what is your name?') 
+		console.log(playerName)
+			
+	alert('Oak: Right! So your name is' + ' ' + playerName)
+
+//obtaining enemys name
+	enemyName = prompt('Oak: This is my grandson. He has been your rival since you were a baby. ...Erm, what is his name again?')
+		console.log(enemyName)
+	
+	alert('Oak: That is right! I remember now! His name is' + " " + enemyName + '!') 
+	
+	alert('Oak:' + ' ' + playerName + ' ' + "Your very own Pokemon legend is about to unfold! A world of dreams and adventures with Pokemon awaits! Let's go!")
+
+	alert('Oak:' + ' ' + playerName + ' ' + 'first you need to choose your Pokemon')
+
+	userEntry = prompt("Which Pokemon do you choose? \n1) Bulbasaur \n2) Squirtle \n3) Charmander \n\nEnter 1, 2, or 3")
+	
+//user selecting the pokemon
+	if(userEntry === '1' ){
+		Pokemon = "Bulbasaur"
+	} else if (userEntry === '2' ) {
+		Pokemon = "Squirtle"
+	} else if (userEntry === '3') {
+		Pokemon = "Charmander"
+	} else {
+		Pokemon = "Picachu"
+	}
+		console.log(Pokemon)
+
+//computer starting battle
+	alert('You have choosen ' + Pokemon + ".")
+
+	alert('After obtaining ' + Pokemon + " you leave Professor Oak's lab ")
+
+	alert('Walking down the street you run into ' + enemyName + '!!')
+
+	alert(enemyName + ": " + playerName + ', so we meet again, and this early in our journeys. How about a friendly first battle?') 
+				
+//cpu randomly selecting a pokemon
+	if(Pokemon === "Bulbasaur"){
+		enemyChoice = Math.floor(Math.random() * 2) 
+			if(enemyChoice === 1 ){
+				enemyPokemon = "Squirtle"
+			} else {
+				enemyPokemon = "Charmander"
+			}
+	} else if(Pokemon === "Squirtle"){
+		 enemyChoice = Math.floor(Math.random() * 2) 
+			if(enemyChoice === 1){
+				enemyPokemon = "Bulbasaur"
+			} else {
+				enemyPokemon = "Charmander"
+			}
+	} else if(Pokemon === "Charmander"){
+		 enemyChoice = Math.floor(Math.random() * 2) 
+			if(enemyChoice === 1){
+				enemyPokemon = "Bulbasaur"
+			} else {
+				enemyPokemon = "Squirtle"
+			}
+	} else if (Pokemon === "Picachu"){
+		enemyChoice = Math.floor(Math.random() * 3) 
+			if(enemyChoice === 1){
+				enemyPokemon = "Bulbasaur"
+			} else if(enemyChoice === 2) {
+				enemyPokemon = "Squirtle"
+			} else {
+				enemyPokemon = "Charmander"
+			}
+		}
+			console.log(enemyPokemon)
+		
+	alert(enemyName + ': I choose you ' + enemyPokemon)
+
+//variables for the fight
+	var userHP = 100
+	var cpuHP = 100
+	var userEnergy = 10 
+	var cpuEnergy = 10
+	var fighting = true
+	var userDamage = 0
+	var enemyDamage = 0
+	var moveChoice
+	var winner
+	
+//Fighting begins
+	alert(enemyName + " sent out " + enemyPokemon)
+
+	alert("You sent out" + " " + Pokemon)
+
+	while(fighting === true){
+		moveChoice = ''
+		enemySelect = ''
+
+		if(userEnergy < 1){
+			userEnergy = 0
+		}
+
+		if(cpuEnergy < 1){
+			cpuEnergy = 0
+		}
+
+
+//checking pokemons stats
+			alert(Pokemon + " has " + userEnergy + " energy and " + userHP + " HP.")
+
+			if(userEnergy < 3){
+				alert(Pokemon + " does not have enough energy")
+				alert(Pokemon + " must use recharge")
+				alert(Pokemon + " used recharge")
+				userEnergy = userEnergy + 5
+				alert(Pokemon + " gained 5 energy. " + Pokemon + " now has " + userEnergy + " energy")
+
+			} else {
+		
+// user selecting a move		
+				while(moveChoice !== '1' && moveChoice !== '2' && moveChoice !== '3'){
+					if(Pokemon === "Bulbasaur"){
+						 moveChoice = prompt("What move will " + Pokemon + " use? Avalible moves: \n1) Tackle \n\t A full-body charge attack. Does 0-10 damage. \n2) Vine Whip \n\t The enemy is struck with slender, whiplike vines to inflict damage. Does 0-20 damage. \n3) Recharge \n\t Pokemon gains 5 energy \n\nEnter 1, 2, or 3")
+					} else if(Pokemon === "Squirtle"){
+						moveChoice = prompt("What move will " + Pokemon + " use? Avalible moves: \n1) Tail Whip \n\t The enemy is struck by the Pokemon's tail to inflict damage. Does 0-10 damage. \n2) Water Gun \n\t The foe is struck with a lot of water expelled forcibly from the mouth. Does 0-20 damage. \n3) Recharge\n\t Pokemon gains 5 energy \n\nEnter 1, 2, or 3")
+					} else if(Pokemon === "Charmander"){
+						moveChoice = prompt("What move will " + Pokemon + " use? Avalible moves: \n1) Scratch \n\t Scratches the target with sharp claws. Does 0-10 damage \n2) Ember\n\t The target is attacked with small flames. Does 0-20 damage. \n3) Recharge\n\t Pokemon gains 5 energy \n\nEnter 1, 2, or 3")
+					} else if (Pokemon === "Picachu"){
+						moveChoice = prompt("What move will " + Pokemon + " use? Avalible moves: \n1) Quick Attack\n\t An almost invisibly fast attack that is certain to strike. Does 0-10 damage. \n2) Thunder Shock \n\t A jolt of electricity is hurled at the foe to inflict damage. Does 0-20 damage. \n3) Recharge\n\t Pokemon gains 5 energy \n\nEnter 1, 2, or 3")			 
+					}
+				}
+					console.log(moveChoice)
+
+				if(Pokemon === "Bulbasaur"){
+					if(moveChoice === '1'){
+						var userMove = "Tackle"
+					} else if(moveChoice === '2'){
+						userMove = "Vine Whip"
+					} else if(moveChoice === '3')
+						userMove = "Recharge"
+					}
+						
+				else if(Pokemon === "Squirtle"){
+					if(moveChoice === '1'){
+						 userMove = "Tail Whip"
+					} else if(moveChoice === '2'){
+						userMove = "Water Gun"
+					} else if(moveChoice === '3')
+						userMove = "Recharge"
+					}
+						
+				else if(Pokemon === "Charmander"){
+					if(moveChoice === '1'){
+						 userMove = "Scratch"
+					} else if(moveChoice === '2'){
+						userMove = "Ember"
+					} else if(moveChoice === '3')
+						userMove = "Recharge"
+					}
+						
+				 else if (Pokemon === "Picachu"){
+					if(moveChoice === '1'){
+						 userMove = "Quick Attack"
+					} else if(moveChoice === '2'){
+						userMove = "Thunder Shock"
+					} else if(moveChoice === '3')
+						userMove = "Recharge"
+					}
+			}
+
+//randomly creating damage for users move
+			if(moveChoice === '1' || moveChoice === '2'){
+				if(moveChoice === '1'){
+					 userDamage = Math.ceil(Math.random() * 10)
+					userEnergy = userEnergy - 2
+				} else if(moveChoice === '2'){
+					userDamage = Math.ceil(Math.random() * 20)
+					userEnergy = userEnergy - 5
+				} 
+
+				cpuHP = cpuHP - userDamage
+				
+				if(cpuHP < 1){
+					cpuHP = 0
+					fighting = false
+					winner = Pokemon
+				}		
+
+				alert(userMove + " did " + userDamage + " damage! " + enemyPokemon + " has " + cpuHP + " HP left")
+			} 	
+
+			if(moveChoice == 3){
+				userEnergy = userEnergy + 5
+				alert(Pokemon + " now has " + userEnergy)
+			}
+
+if(fighting === true){
+
+//checking CPU stats	
+			if(cpuEnergy < 5){
+				enemySelect = 3	
+			
+			} else {
+
+// cpu randomly selecting a move
+				if(enemyPokemon === "Bulbasaur"){
+					var enemySelect = Math.ceil(Math.random() *2 ) 
+						if(enemySelect === 1){
+							var enemyMove = "Tackle"
+						} else if(enemySelect === 2){
+							enemyMove = "Vine Whip"
+						} 			
+				}
+						
+				else if(enemyPokemon === "Squirtle"){
+					enemySelect = Math.ceil(Math.random() *2 ) 
+						if(enemySelect === 1){
+							 enemyMove = "Tail Whip"
+						} else if(enemySelect === 2){
+							enemyMove = "Water Gun"
+						} 
+				}
+
+				else if(enemyPokemon === "Charmander"){
+					enemySelect = Math.ceil(Math.random() *2)
+						if(enemySelect === 1){
+							 enemyMove = "Scratch"
+						} else if(enemySelect === 2){
+							enemyMove = "Ember"
+						} 
+				} 
+						
+				else if(enemyPokemon === "Picachu") {
+					enemySelect = Math.ceil(Math.random() *2)
+						if(enemySelect === 1){
+							 enemyMove = "Quick Attack"
+						} else if(enemySelect === 2){
+							enemyMove = "Thunder Shock"
+						} 
+				}
+			}
+//ramdomly creating damge for cpu
+			if(enemySelect == 1 || enemySelect == 2 ){
+				if(enemySelect === 1){
+					var enemyDamage = Math.ceil(Math.random() * 10)
+				} else if(enemySelect === 2){
+					enemyDamage = Math.ceil(Math.random() * 20)
+				} 
+					cpuEnergy = cpuEnergy - 5
+					userHP = userHP - enemyDamage
+					alert(enemyMove + " did " + enemyDamage + " damage! " + Pokemon + " has " + userHP + " HP left")
+			} 
+			
+			if (enemySelect == 3){
+				cpuEnergy = cpuEnergy + 5
+				
+			alert(enemyPokemon + " gained 5 energy. " + enemyPokemon + " now has " + userEnergy + " energy!")
+			}	
+
+			if(userHP < 1){
+				userHP = 0
+				fighting = false
+				winner = enemyPokemon
+			}						
+		}	
+	}
+
+//ending battle
+	console.log(winner)
+
+	if(fighting === false){
+		if(winner === enemyPokemon){
+			var refresh = confirm("You lost. " + enemyPokemon + " won the battle. Do you want to play again?")
+		} else if(winner === Pokemon){
+			refresh = confirm("You defeated " + enemyPokemon + ". Congrats!! Do you want to play again?")
+		}
+	}
+
+	if(refresh === true) {
+			location.reload(true);
+	} else if(refresh === false) {	
+			alert("Thank you for playing.");
+			window.close()
+		}
+
+
+
+
+</script>
+</body>
+</html>
